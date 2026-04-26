@@ -1,30 +1,30 @@
-import { useState, useCallback } from 'react'
-import type { ReactNode } from 'react'
-import type { User } from '../types'
-import { AuthContext } from './AuthContext'
+import { useState, useCallback } from "react";
+import type { ReactNode } from "react";
+import type { User } from "../types";
+import { AuthContext } from "./AuthContext";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [token, setToken] = useState<string | null>(
-    () => localStorage.getItem('token')
-  )
+  const [token, setToken] = useState<string | null>(() =>
+    localStorage.getItem("token"),
+  );
   const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem('user')
-    return stored ? JSON.parse(stored) : null
-  })
+    const stored = localStorage.getItem("user");
+    return stored ? JSON.parse(stored) : null;
+  });
 
   const login = useCallback((newToken: string, newUser: User) => {
-    localStorage.setItem('token', newToken)
-    localStorage.setItem('user', JSON.stringify(newUser))
-    setToken(newToken)
-    setUser(newUser)
-  }, [])
+    localStorage.setItem("token", newToken);
+    localStorage.setItem("user", JSON.stringify(newUser));
+    setToken(newToken);
+    setUser(newUser);
+  }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    setToken(null)
-    setUser(null)
-  }, [])
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(null);
+    setUser(null);
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -32,5 +32,5 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     >
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
