@@ -2,16 +2,16 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  role: 'ADMIN' | 'EDITOR' | 'VIEWER';
+  role: "ADMIN" | "EDITOR" | "VIEWER";
 }
 
 export interface Project {
   id: string;
   name: string;
   description?: string;
-  status: 'active' | 'archived';
+  status: "active" | "archived";
   ownerId: string;
-  owner: Pick<User, 'id' | 'name' | 'email'>;
+  owner: Pick<User, "id" | "name" | "email">;
   documents: Document[];
   createdAt: string;
   updatedAt: string;
@@ -32,9 +32,9 @@ export interface PaginatedResponse<T> {
 }
 
 export interface AuthContextType {
-  user: User | null
-  token: string | null
-  login: (token: string, user: User) => void
-  logout: () => void
-  isAuthenticated: boolean
+  user: User | null;
+  token: string | null;
+  login: (token: string, user: User) => void;
+  logout: () => void;
+  isAuthenticated: boolean;
 }
