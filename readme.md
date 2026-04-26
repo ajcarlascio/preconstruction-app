@@ -5,6 +5,7 @@ A full-stack application for managing preconstruction projects, documents, and t
 ## Tech Stack
 
 ### Backend
+
 - **Runtime**: Node.js with TypeScript
 - **Framework**: Express.js
 - **Database**: PostgreSQL with Prisma ORM
@@ -13,6 +14,7 @@ A full-stack application for managing preconstruction projects, documents, and t
 - **Security**: Helmet, CORS, rate limiting, Zod validation
 
 ### Frontend
+
 - **Framework**: React 19 with TypeScript
 - **Build Tool**: Vite
 - **Routing**: React Router DOM
@@ -114,16 +116,16 @@ The frontend runs on `http://localhost:5173` (default Vite port).
 
 ### Backend (.env)
 
-| Variable | Description |
-|----------|-------------|
-| `DATABASE_URL` | PostgreSQL connection string |
-| `JWT_SECRET` | Secret key for JWT signing |
-| `PORT` | Server port (default: 3001) |
-| `NODE_ENV` | Environment (development/production) |
-| `FRONTEND_URL` | Frontend origin for CORS |
-| `AWS_REGION` | AWS region |
-| `AWS_S3_BUCKET` | S3 bucket name |
-| `AWS_SQS_QUEUE_URL` | SQS queue URL |
+| Variable            | Description                          |
+| ------------------- | ------------------------------------ |
+| `DATABASE_URL`      | PostgreSQL connection string         |
+| `JWT_SECRET`        | Secret key for JWT signing           |
+| `PORT`              | Server port (default: 3001)          |
+| `NODE_ENV`          | Environment (development/production) |
+| `FRONTEND_URL`      | Frontend origin for CORS             |
+| `AWS_REGION`        | AWS region                           |
+| `AWS_S3_BUCKET`     | S3 bucket name                       |
+| `AWS_SQS_QUEUE_URL` | SQS queue URL                        |
 
 ---
 
@@ -131,28 +133,29 @@ The frontend runs on `http://localhost:5173` (default Vite port).
 
 ### Authentication (`/api/v1/auth`)
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/register` | Register a new user |
-| POST | `/login` | Login and get JWT |
-| GET | `/me` | Get current user info |
+| Method | Endpoint    | Description           |
+| ------ | ----------- | --------------------- |
+| POST   | `/register` | Register a new user   |
+| POST   | `/login`    | Login and get JWT     |
+| GET    | `/me`       | Get current user info |
 
 ### Projects (`/api/v1/projects`)
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | List all projects (auth required) |
-| POST | `/` | Create a new project |
-| GET | `/:id` | Get project by ID |
-| PUT | `/:id` | Update project |
-| DELETE | `/:id` | Delete project |
-| POST | `/:id/documents` | Upload document to project |
+| Method | Endpoint         | Description                       |
+| ------ | ---------------- | --------------------------------- |
+| GET    | `/`              | List all projects (auth required) |
+| POST   | `/`              | Create a new project              |
+| GET    | `/:id`           | Get project by ID                 |
+| PUT    | `/:id`           | Update project                    |
+| DELETE | `/:id`           | Delete project                    |
+| POST   | `/:id/documents` | Upload document to project        |
 
 ---
 
 ## Database Schema
 
 ### User
+
 - `id` (UUID)
 - `email` (unique)
 - `password` (hashed)
@@ -161,6 +164,7 @@ The frontend runs on `http://localhost:5173` (default Vite port).
 - `projects` (relation)
 
 ### Project
+
 - `id` (UUID)
 - `name`
 - `description`
@@ -169,6 +173,7 @@ The frontend runs on `http://localhost:5173` (default Vite port).
 - `documents` (relation)
 
 ### Document
+
 - `id` (UUID)
 - `filename`
 - `s3Key` (S3 object key)
@@ -181,21 +186,23 @@ The frontend runs on `http://localhost:5173` (default Vite port).
 ## Scripts
 
 ### Backend
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start dev server with nodemon |
-| `npm run build` | Compile TypeScript |
-| `npm run start` | Start production server |
-| `npm run db:generate` | Generate Prisma client |
-| `npm run db:migrate` | Run database migrations |
-| `npm run db:studio` | Open Prisma Studio |
+
+| Script                | Description                   |
+| --------------------- | ----------------------------- |
+| `npm run dev`         | Start dev server with nodemon |
+| `npm run build`       | Compile TypeScript            |
+| `npm run start`       | Start production server       |
+| `npm run db:generate` | Generate Prisma client        |
+| `npm run db:migrate`  | Run database migrations       |
+| `npm run db:studio`   | Open Prisma Studio            |
 
 ### Frontend
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start Vite dev server |
-| `npm run build` | Build for production |
-| `npm run lint` | Run ESLint |
+
+| Script            | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start Vite dev server    |
+| `npm run build`   | Build for production     |
+| `npm run lint`    | Run ESLint               |
 | `npm run preview` | Preview production build |
 
 ---
