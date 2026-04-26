@@ -1,0 +1,24 @@
+.env
+.env.local
+.env.*.local
+# Node dependencies
+node_modules/
+dist/
+build/
+*.js.map
+# Logs
+*.log
+npm-debug.log*
+# OS files
+.DS_Store
+Thumbs.db
+# IDE
+.vscode/
+.idea/
+# AWS credentials
+.aws/
+# Prisma generated DB
+prisma/dev.db
+prisma/dev.db-journal
+# Test coverage
+coverage/
